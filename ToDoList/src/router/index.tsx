@@ -5,12 +5,14 @@ import Home from "../page/Home/Home.tsx"
 import Image from "../components/Image.tsx";
 import List from "../components/List.tsx";
 import NotFound from "../page/NotFound/NotFound.tsx"; 
+import StartPage from "../page/StartPage/StartPage.tsx";
+import AddTask from "../components/addTask.tsx";
 
 // const token=localStorage.getItem('token')
 const router=createBrowserRouter([
 {
       path: '/',
-      element:<Login/>,// 要指定一个默认页面路径
+      element:<StartPage/>,// 要指定一个默认页面路径
 },
 {
     path:'/Login',
@@ -37,6 +39,14 @@ const router=createBrowserRouter([
 {
    path:'*',
    element:<NotFound/>
+},
+{
+   path:'/List',
+   element:<List/>
+},
+{
+   path:'/addTask',
+   element:<AddTask/>
 }
 ])
 

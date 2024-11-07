@@ -6,6 +6,7 @@ const Home=()=>{
             主页
             <button onClick={()=>navigate("")}>图像</button>
             <button onClick={()=>navigate("/Home/list")}>列表</button>
+            <button>设置</button>
             <Outlet/>
         </div>
     )

@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import SignUp from "../page/SignUp/SignUp.tsx";
 import Login from  "../page/Login/Login.tsx";
 import Home from "../page/Home/Home.tsx"
-import Image from "../components/Image.tsx";
+import PieChart from "../components/PieChart.tsx";
 import List from "../components/List.tsx";
 import NotFound from "../page/NotFound/NotFound.tsx"; 
 import StartPage from "../page/StartPage/StartPage.tsx";
@@ -28,7 +28,7 @@ const router=createBrowserRouter([
    children:[
       {
          path:"",
-         element:<Image/>
+         element:<PieChart/>
       },
       {
          path:'list',
@@ -41,7 +41,7 @@ const router=createBrowserRouter([
    element:<NotFound/>
 },
 {
-   path:'/List',
+   path:'/list',
    element:<List/>
 },
 {

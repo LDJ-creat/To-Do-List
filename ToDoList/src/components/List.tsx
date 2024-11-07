@@ -1,79 +1,88 @@
-import { ClassAttributes, HTMLAttributes, JSXElementConstructor, LegacyRef, ReactElement, ReactNode, ReactPortal, useEffect, useState } from "react";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTask, deleteTask, updateTask } from '../Store.ts';
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
-import axios from "axios";
-import { JSX } from "react/jsx-runtime";
-import { useNavigate } from "react-router-dom";
-interface Task{
-  content:string;
-  description:string;
-}
-let tasks:Task[]=[]
-const list=()=>{
-  let [list,setList]=useState(tasks);
-  const navigate=useNavigate()
-  useEffect(()=>{
-    if(localStorage.getItem('token')){
-      const email=localStorage.getItem('email')
-      axios.post('url',email)
-      .then(res=>{setList(res.data)
-         localStorage.setItem('list',res.data)
-      })
-      .catch(err=>{console.error(err)})
-      
-    }else{
-      setList(JSON.parse(localStorage.getItem('list')||'[]'))
-    }
-  },[]) //需不需要加[]
-  // useEffect(()=>{
-  //   if(JSON.parse(localStorage.getItem('list')||'[]')==list) return
-  //   localStorage.setItem('list',JSON.stringify(list))
-  // },[list])
-  // useEffect(()=>{
-  //   if(JSON.parse(localStorage.getItem('list')||'[]')==list) return
-  //   setList(JSON.parse(localStorage.getItem('list')||'[]'))
-  // },[JSON.parse(localStorage.getItem('list')||'[]')])
-
-  const Delete=()=>{
-    setList(list.filter((index)=>index!==index))
+interface Task {
+    id: number;
+    name: string;
+    description: string;
   }
-  const onDragEnd = (result:any) => {
-    if (!result.destination) return;
-    const newlist = [...list];
-    const [removedlist] = newlist.splice(result.source.index, 1);
-    newlist.splice(result.destination.index, 0, removedlist);
-    setList(newlist);
-  };
-    return(
-<DragDropContext
-    onDragEnd={onDragEnd}
-    >
-    <h2>To Do List</h2>
-    <button onClick={()=>navigate('/addTask')}>Add Task</button>
-  <div className="task-list">
 
-    <Droppable droppableId="list">
-        {((provided: { innerRef: LegacyRef<HTMLDivElement> | undefined; droppableProps: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>; placeholder: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; })=>(
-            <div className="task-list" ref={provided.innerRef} {...provided.droppableProps}>
-
-       {list.map((list, index) => (
-  <Draggable index={index} key={index} draggableId={`list-${index}`}>
-    {(provided) => (
-      <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-        <div>{list.content}</div>
-        <div>{list.description}</div>
-        <button onClick={()=>Delete()}>Delete</button>
-      </div>
-    )}
-  </Draggable>
-))}   
-      {provided.placeholder}   
-            </div>
-        ))}
-  </Droppable>
-    </div>
-  </DragDropContext>
-)
-};
   
+  
+  const List: React.FC = () => {
+    let tasks = useSelector((state: any) => state.tasks.tasks);
+    const dispatch = useDispatch();
+    const [newTaskName, setNewTaskName] = useState('');
+    const [newTaskDescription, setNewTaskDescription] = useState('');
+  
+    const handleAddTask = () => {
+      if (newTaskName.trim()!== '') {
+        const newTask: Task = {
+          id: Date.now(),
+          name: newTaskName,
+          description: newTaskDescription,
+        };
+        dispatch(addTask(newTask));
+        setNewTaskName('');
+        setNewTaskDescription('');
+      }
+    };
+    const handleDelete=(index:number)=>{
+      dispatch(deleteTask(index));
+    }
+    const onDragEnd = (result:any) => {
+      if (!result.destination) return;
+      const newTodos = [...tasks];
+      const [removedTodo] = newTodos.splice(result.source.index, 1);
+      newTodos.splice(result.destination.index, 0, removedTodo);
+      // 在这里可以触发状态更新或回调函数，以更新任务列表
+      dispatch(updateTask(newTodos));
 
-export default list;
+      console.log(tasks)
+    };
+    return (
+      <DragDropContext
+      onDragEnd={onDragEnd}
+      >
+      <h2> 任务清单</h2>
+    <div className="task-list">
+  
+      <Droppable droppableId="todo">
+          {((provided:any)=>(
+              <div className="task-list" ref={provided.innerRef} {...provided.droppableProps}>
+  
+         {tasks.map((task:any, index:any) => (
+    <Draggable index={index} key={index} draggableId={`todo-${index}`}>
+      {(provided) => (
+        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+          <div> {task.name} - {task.description}</div>
+          <button onClick={()=>handleDelete(index)}>删除</button>
+        </div>
+      )}
+    </Draggable>
+  ))}   
+        {provided.placeholder}   
+              </div>
+          ))}
+    </Droppable>
+    <input
+          type="text"
+          placeholder="任务名称"
+          value={newTaskName}
+          onChange={(e) => setNewTaskName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="任务描述"
+          value={newTaskDescription}
+          onChange={(e) => setNewTaskDescription(e.target.value)}
+        />
+        <button onClick={handleAddTask}>添加任务</button>
+      </div>
+    </DragDropContext>
+    );
+  };
+  
+  export default List;
+

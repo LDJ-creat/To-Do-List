@@ -15,18 +15,26 @@ const SignUp = () => {
     const [verifyError,setVerifyError]=useState('')
     const [countdown, setCountdown] = useState(60);
     const [isSending, setIsSending] = useState(false);
+    const [isRememberMe, setIsRememberMe] = useState(false);
     const navigate=useNavigate()
   
     //发送验证码
     const handleSendVerificationCode = async () => {
-      if (!isValidEmail ||!isValidPassword) {
+      if (!isValidEmail) {
         return;
       }
   
       setIsSending(true);
   
       try {
-        await axios.post('/api/sendVerificationCode', { email });
+        const response = await axios.post('/api/sendVerificationCode', JSON.stringify({email: email}));
+        if(response.status==401){
+          setVerifyError('邮箱已注册')
+          setIsSending(false)
+        }else if(response.status==500){
+          setVerifyError('邮箱错误')
+          setIsSending(false)
+        }
         const intervalNum = setInterval(() => {
           setCountdown((prevCountdown) => prevCountdown - 1);
         }, 1000);
@@ -43,11 +51,19 @@ const SignUp = () => {
   
     //点击注册
     const handleRegister = async () => {
+      if(!emailError||!passwordError||!confirmError){
+        return
+      }
       try {
         const response = await axios.post('/api/register', { email, password, verificationCode });
         if (response.data.token) {
           // 注册成功，跳转到主页面
+
+          if (isRememberMe){
           localStorage.setItem('token', response.data.token);
+          }else{
+            sessionStorage.setItem('token',response.data.token)
+          }
           navigate('/Home')
           message.success("注册成功")
         } else {
@@ -68,6 +84,7 @@ const SignUp = () => {
         return true
       }else{
         setEmailError('邮箱格式不正确')
+        return false
       }
     };
   
@@ -80,12 +97,11 @@ const SignUp = () => {
         return true
       }else{
         setPasswordError('密码需至少为6位字符')
+        return false
       }
     };
 
 
-    // const [passwordConfirm,setPasswordConfirm]=useState('')
-    // const [confirmError,setConfirmError]=useState('')
     const handlePasswordConfirm=( e: { target: { value: SetStateAction<string> } })=>{
      setPasswordConfirm(e.target.value)
         if(passwordConfirm!=password){
@@ -104,16 +120,16 @@ const SignUp = () => {
           value={email}
           onChange={isValidEmail}
         />
-        {emailError&&<p>{emailError}</p>}
+        <p>{emailError&&<p>{emailError}</p>}</p>
         <input
           type="password"
           placeholder="密码"
           value={password}
           onChange={isValidPassword}
         />
-        {passwordError&&<p>{passwordError}</p>}
+        <p>{passwordError&&<p>{passwordError}</p>}</p>
         <input type="text" placeholder="密码确认"  value={passwordConfirm} onChange={handlePasswordConfirm} />
-        {confirmError&&<p>{confirmError}</p>}
+        <p>{confirmError&&<p>{confirmError}</p>}</p>
         <input
           type="text"
           placeholder="验证码"
@@ -123,8 +139,10 @@ const SignUp = () => {
         <button onClick={handleSendVerificationCode} disabled={isSending}>
           {isSending? `${countdown} 秒后重新发送` : '发送验证码'}
         </button>
-        {verifyError&&<p>{verifyError}</p>}
+        <p>{verifyError&&<p>{verifyError}</p>}</p>
         <button onClick={handleRegister}>注册</button>
+        <input type="checkbox" id='rememberMe' checked={isRememberMe} onChange={() => setIsRememberMe(!isRememberMe)} />
+        <label htmlFor='rememberMe'>记住我</label>
       </div>
     );
   };

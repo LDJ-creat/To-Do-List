@@ -7,7 +7,7 @@ import List from "../components/List.tsx";
 import NotFound from "../page/NotFound/NotFound.tsx"; 
 import StartPage from "../page/StartPage/StartPage.tsx";
 import AddTask from "../components/addTask.tsx";
-
+import RandomWish from "../components/RandomWish.tsx";
 // const token=localStorage.getItem('token')
 const router=createBrowserRouter([
 {
@@ -47,6 +47,10 @@ const router=createBrowserRouter([
 {
    path:'/addTask',
    element:<AddTask/>
+},
+{
+   path:'randomWish',
+   element:<RandomWish/>
 }
 ])
 

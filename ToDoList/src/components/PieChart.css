@@ -1,4 +1,15 @@
 .PieChart {
-    width: 400px;
-    height: 300px;
+    /* width: 400px;
+    height: 300px; */
+
+}
+
+canvas{
+    width: 200px;
+    height: 200px;
+}
+
+.chart-container{
+    width: 200px;
+    height: 200px;
 }

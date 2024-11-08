@@ -1,27 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTask, deleteTask, updateTask } from '../Store.ts';
+import { addTask, deleteTask, updateTask,finishTask } from '../Store.ts';
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
+import axios from 'axios';
 interface Task {
-    id: number;
+    id: number;   
     name: string;
     description: string;
+    isCompleted: boolean;
+    isRecycle: boolean;
   }
-
-  
+ 
   
   const List: React.FC = () => {
     let tasks = useSelector((state: any) => state.tasks.tasks);
     const dispatch = useDispatch();
     const [newTaskName, setNewTaskName] = useState('');
     const [newTaskDescription, setNewTaskDescription] = useState('');
+    const [recycle, setRecycle] = useState(false);
+
+    
+  useEffect(() => {
+    const updateToBE=async()=>{
+      const token=localStorage.getItem('token')
+      if (token){
+        await axios.post('url',tasks,{headers:{Authorization:token}})
+      }
+    };
+    updateToBE();
+   }, [tasks]);
   
     const handleAddTask = () => {
       if (newTaskName.trim()!== '') {
         const newTask: Task = {
-          id: Date.now(),
+          id: 0,
           name: newTaskName,
           description: newTaskDescription,
+          isCompleted: false,
+          isRecycle: recycle,
         };
         dispatch(addTask(newTask));
         setNewTaskName('');
@@ -31,6 +47,11 @@ interface Task {
     const handleDelete=(index:number)=>{
       dispatch(deleteTask(index));
     }
+
+    const handleFinish=(index:number)=>{
+      dispatch(finishTask(index))
+
+    }
     const onDragEnd = (result:any) => {
       if (!result.destination) return;
       const newTodos = [...tasks];
@@ -38,8 +59,7 @@ interface Task {
       newTodos.splice(result.destination.index, 0, removedTodo);
       // 在这里可以触发状态更新或回调函数，以更新任务列表
       dispatch(updateTask(newTodos));
-
-      console.log(tasks)
+     
     };
     return (
       <DragDropContext
@@ -55,9 +75,10 @@ interface Task {
          {tasks.map((task:any, index:any) => (
     <Draggable index={index} key={index} draggableId={`todo-${index}`}>
       {(provided) => (
-        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-          <div> {task.name} - {task.description}</div>
+        tasks[index].isCompleted?null:<div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+          <div onDoubleClick={()=>handleDelete(index)}> {task.name} - {task.description}</div>
           <button onClick={()=>handleDelete(index)}>删除</button>
+          <button onClick={()=>handleFinish}>完成</button>
         </div>
       )}
     </Draggable>
@@ -78,7 +99,9 @@ interface Task {
           value={newTaskDescription}
           onChange={(e) => setNewTaskDescription(e.target.value)}
         />
+        <button onClick={()=>setRecycle(true)}>循环</button> <button onClick={()=>setRecycle(false)}>限时</button>
         <button onClick={handleAddTask}>添加任务</button>
+        
       </div>
     </DragDropContext>
     );

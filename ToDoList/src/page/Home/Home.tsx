@@ -17,7 +17,7 @@ const Home=()=>{
                         <img src={Decoration1} alt="Decoration1" id='Decoration1' />
                         <img src={Decoration2} alt="Decoration2" id='Decoration2' />
                         <div id='Content'>
-                            <span id='detailContent'>今天完成了</span>
+                            <span id='headContent'>今天完成了</span>
                         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                             
                         </div>

@@ -1,4 +1,4 @@
-.Home{
+.task-list{
     background-image: url('../../images/背景垫图.png');
     width: 390px;
    height: 833px;
@@ -7,29 +7,57 @@
    justify-content: center;
    align-items: center;
    background-repeat: no-repeat;
+   position:relative;
 
 }
-#Pisa{
+/* #Pisa{
     width: 390px;
     height: 833px;
     background-image: url('../../images/披萨主图.svg');
-}
-.PieChart{
+} */
+/* .PieChart{
  position:absolute;
  margin-top:-287px;
  margin-left:0px;
 
+} */
+#back{
+    width: 47px;
+height: 47px;
+flex-shrink: 0;
+margin-top: -726px;
+margin-left:-360px;
+background-image: url('../../images/Component 6.svg');
+position:absolute;
 }
-
 #Setting{
     width: 36px;
     height: 10px;
     flex-shrink: 0;
     background-image: url('../../images/Setting.svg');
-    margin-top: 30px;
+    margin-top: -733px;
     margin-left: 320px;
+    position: absolute;
 }
-#FinishTasks{
+#task{
+    width: 358px;
+height: 68px;
+flex-shrink: 0;
+border-radius: 20px;
+background: #FFBA8B;
+}
+#isFinish{
+    width: 38px;
+height: 38px;
+flex-shrink: 0;
+}
+#finish{
+    width: 22.5px;
+height: 20px;
+flex-shrink: 0;
+background-image: url('../../images/Vector 48.svg');
+}
+/* #FinishTasks{
     width: 359px;
     height: 162px;
     margin-top:423px;
@@ -78,7 +106,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-}
+} */
 #add{
     width: 53px;
     height: 53px;

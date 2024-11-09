@@ -1,9 +1,174 @@
 .Home{
-    background-image: url('./1.png');
+    background-image: url('../../images/背景垫图.png');
     width: 390px;
    height: 833px;
    display:flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   background-repeat: no-repeat;
+
+}
+#Pisa{
+    width: 390px;
+    height: 833px;
+    background-image: url('../../images/披萨主图.svg');
+}
+.PieChart{
+ position:absolute;
+ margin-top:-287px;
+ margin-left:0px;
+
+}
+
+#Setting{
+    width: 36px;
+    height: 10px;
+    flex-shrink: 0;
+    background-image: url('../../images/Setting.svg');
+    margin-top: 30px;
+    margin-left: 320px;
+}
+#FinishTasks{
+    width: 359px;
+    height: 162px;
+    margin-top:423px;
+    margin-left:15px;
+    flex-shrink: 0;
+    border-radius: 31px;
+    border: 6px solid #FFF;
+    background: #FFF0CE;
+    box-shadow: 0px 0px 7.8px 0px rgba(179, 72, 0, 0.21);
+    position:relative;
+}
+
+#Decoration1{
+    width: 54px;
+    height: 33px;
+    flex-shrink: 0;
+    margin-top: -8px;
+    margin-left:29px;
+    
+    position:absolute;
+}
+#Decoration2{
+    width: 47px;
+    height: 9.442px;
+    flex-shrink: 0;
+    margin-top:9px;
+    margin-left:297px;
+    position:absolute;
+   
+}
+#Content{    
+    color: #F8A00C;
+    font-family: ABeeZee;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    margin-top:38px;
+    margin-left:28px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+#detailContent{
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+#add{
+    width: 53px;
+    height: 53px;
+    flex-shrink: 0;
+    margin-top:28px;
+    margin-left:306px;
+    background-image: url('../../images/Component 5.svg');
+}
+#footer{
+    width: 359px;
+    height: 85px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    border: 5px solid #FFF;
+    background: #FFF0CE;
+    box-shadow: 0px 0px 7.8px 0px rgba(179, 72, 0, 0.21);
+    margin-left:16px;
+    margin-top:7px;
+    position:relative;
+}
+#FooterDor1{
+    width: 36.5px;
+    height: 7.442px;
+    margin-left:19px;
+    margin-top:7.05px;
+    flex-shrink: 0;
+    stroke-width: 5px;
+    stroke: #FFF;
+    position: absolute;
+}
+#FooterDor2{
+    width: 5px;
+    height: 5px;
+    margin-top:7.05px;
+    margin-left:53px;
+    flex-shrink: 0;
+    fill: #FFF;
+    position: absolute;
+}
+
+#listIcon{
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+    margin-left:16px;
+    margin-top:7.05px;
+    position: absolute;
+}
+#chartIcon{
+    width: 165px;
+height: 162px;
+flex-shrink: 0;
+position: absolute;
+margin-left:92px;
+margin-top:-41px;
+}
+#wishesIcon{
+    width: 74px;
+    height: 82px;
+    flex-shrink: 0;
+    position: absolute;
+    margin-left:263px;
+    margin-top:-2px;
+}
+#list{
+width: 25px;
+height: 11px;
+flex-shrink: 0;
+color: #C76C01;
+font-family: "Abhaya Libre ExtraBold";
+font-size: 12px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+position:absolute;
+margin-top:68px;
+margin-left:36px;
+}
+#wishes{
+    color: #C86D01;
+    font-family: "Abhaya Libre ExtraBold";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position:absolute;
+    margin-top:69px;
+    margin-left:289px;
+}
+
+#Setting, #add,#listIcon, #chartIcon, #wishesIcon{
+    cursor: pointer;
 }

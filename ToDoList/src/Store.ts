@@ -21,7 +21,9 @@ interface WishState{
   wishes: Task[];
 }
 const initialState: TaskState = {
+
     tasks: JSON.parse(localStorage.getItem('tasks') as string) || [],
+    
   };
   
  const wishInitialState: WishState = {

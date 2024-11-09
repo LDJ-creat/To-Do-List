@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import {useEffect} from "react";
+import "./StartPage.css";
+import LogoSvg from '../../images/logo.svg'
 const StartPage = () => {
     const navigate = useNavigate();
     
@@ -13,9 +15,9 @@ const StartPage = () => {
     return () => clearTimeout(timer);
   }, []);
   return( 
-  <div>
-  <div>Start Page</div>
-  <button onClick={()=>navigate('Home')}>Get Start</button>
+  <div className="start-page">
+    <img src={LogoSvg} alt="logo" />
+    <div className="product-name">PIZZA LIST</div>
   </div>
   );
 };

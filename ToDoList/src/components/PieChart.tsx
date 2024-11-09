@@ -110,12 +110,7 @@ const PieChart: React.FC = () => {
       <div className='chart-container'>
       <Pie data={data}  options={options} />
       </div>
-      {/* <canvas ref={chartRef} /> */}
-      {/* <button onClick={updateData}>更新数据</button> */}
-      <button></button>
-      <div>“今天吃掉了{tasks.length}快披萨！”</div>
-      <button onClick={handleAddTask}>增加任务</button>
-      <input
+      {/* <input
           type="text"
           placeholder="任务名称"
           value={newTaskName}
@@ -126,9 +121,8 @@ const PieChart: React.FC = () => {
           placeholder="任务描述"
           value={newTaskDescription}
           onChange={(e) => setNewTaskDescription(e.target.value)}
-        />
-      <button>心愿社区</button>
-    </div>
+        /> */}
+    // </div>
   );
 };
 

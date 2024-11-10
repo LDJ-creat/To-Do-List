@@ -1,0 +1,56 @@
+.my-wish{
+
+    background-image: url('../../images/背景垫图.png');
+    width: 390px;
+    height: 844px;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    position: relative;
+    
+}
+.my-wish-back{
+    background-image: url('../../images/Component 6.svg');
+    margin-top:27px ;
+    margin-left: 4px;
+}
+.Wish-List{
+    width: 343px;
+height: 148px;
+flex-shrink: 0;
+    background-image: url('../../images/底框(横向).svg');
+    margin-left: 40px;
+    margin-top:30px ;
+}
+.my-wish-name{
+    display:inline-block;
+    font-size:30px;
+    color: rgba(200, 109, 1, 0.70);
+    font-family: "PingFang SC";
+    margin-left: 40px;
+    margin-top:30px ;
+    margin-right:5px;
+    vertical-align: bottom;
+
+
+}
+.my-wish-cycle{
+    display:inline-block;
+    font-size: 21px;
+    width: 45px;
+    height: 32px;
+    background-color: #DA7E2D;
+    border-radius: 9px;
+    vertical-align: bottom;
+}
+.my-wish-description{
+    color: rgba(200, 109, 1, 0.70);
+    font-family: "PingFang SC";
+    font-size: 21px;
+    margin-left: 40px;
+}
+.my-wish-add{
+    background-image: url('../../images/Component 5.svg');
+    margin-left: 310px;
+    margin-top:450px ;
+
+}

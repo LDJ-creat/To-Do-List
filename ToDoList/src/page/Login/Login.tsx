@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import {useState} from 'react'
 import axios from 'axios'
 import { message } from "antd"
+import './Login.css'
 const Login=()=>{
     const navigate=useNavigate()
     const [email, setEmail] = useState('');
@@ -38,25 +39,31 @@ const Login=()=>{
       }
     };
     return(
-        <div className='SignUp'>
-             
+        <div className='Login'>
+         <p id='welcome'>欢迎登录</p>   
+         <div className='InputIfo'> 
       <input
         type="email"
-        placeholder="邮箱"
+        id="email"
+        placeholder="请输入邮箱"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
+     
       <input
         type="password"
+        id='password'
         placeholder="密码"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleLogin}>登录</button>
+
       <p>{errorMessage && <p>{errorMessage}</p>}</p>
-      <input type="checkbox" id="remember" checked={isRememberMe} onChange={()=>setIsRememberMe(!isRememberMe)} />
-      <label htmlFor="remember">记住我</label>
-      <p>还没有账号？<a href="../SignUp/SignUp.tsx">注册一个</a></p>
+      <label htmlFor="remember" className="RememberLabel"><input type="checkbox" id="remember" checked={isRememberMe} onChange={()=>setIsRememberMe(!isRememberMe)} />记住我</label>
+      {/* <label htmlFor="remember">记住我</label> */}
+      </div>
+      <button onClick={handleLogin} id='loginBtn'>登录</button>
+      <button id='toRegister'>还没有账号？注册一个</button>
         
         </div>
     )

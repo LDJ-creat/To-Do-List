@@ -1,0 +1,59 @@
+.FinishChoose {
+    background-image: url('../../images/背景垫图.png');
+    width: 390px;
+height: 844px;
+flex-shrink: 0;
+background-repeat: no-repeat;
+position: relative;
+}
+#FinishChooseImg {
+    margin-top: 44px;
+    margin-left:11px;
+}
+.resultName{
+ 
+    width: 166px;
+    height: 70px;
+    margin-top: -514px;
+    margin-left:108px;
+    position:absolute;
+    color: #C86D01;
+    font-family: "PingFang SC";
+    font-size: 29px;
+
+   
+}
+.result{
+  
+    width: 250px;
+    height: 250px;
+    margin-top: -400px;
+    margin-left: 64px;
+    position:absolute;
+    color: #C86D01;
+    font-family: "PingFang SC";
+    font-size: 19px;
+
+}
+
+.again, .confirmAdd{
+    width: 146px;
+height: 46px;
+flex-shrink: 0;
+border-radius: 13px;
+border: 4px solid #FFF;
+background: #FFF0CE;
+box-shadow: 0px 8px 32px 0px rgba(238, 214, 179, 0.35);
+color: #C86D01;
+font-family: "PingFang SC";
+font-size: 26px;
+font-style: normal;
+font-weight: 400;
+line-height: 0%; 
+display :inline;
+
+}
+.again{
+    margin-left: 22px;
+    margin-right:37px;
+}

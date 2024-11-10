@@ -1,0 +1,108 @@
+#addWishBgi{
+    width: 347.592px;
+    height: 460px;
+    flex-shrink: 0;
+background-image: url('../images/底框.svg');
+background-repeat: no-repeat;
+}
+
+#addWishName{
+    width: 220.522px;
+    height: 47.285px;
+    flex-shrink: 0;
+    border:none;
+    background-color: transparent;
+    margin-top:69px;
+    margin-left: 61px;
+    outline:none;
+    font-size: 34px;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-y: auto;
+}
+
+#addWishName::placeholder{
+    color: #B95906;
+font-family: "PingFang SC";
+font-size: 34px;
+font-style: normal;
+font-weight: 400;
+line-height: 41px;
+}
+#addWishDescription{
+    width: 245px;
+height: 130px;
+flex-shrink: 0;
+margin-top:25px;
+margin-left: 51px;
+background-color: transparent;
+border: none;
+outline:none;
+font-size: 20px;
+word-wrap: break-word;
+word-break: break-all;
+
+}
+#addWishDescription::placeholder{
+    color: #C86D01;
+font-family: "PingFang SC";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px;
+}
+#Rectangle{
+    width: 245px;
+height: 3px;
+font-weight: 700;
+color:rgba(185, 89, 6, 0.72);
+margin-left: 40px;
+margin-top: -12px;
+}
+#setWishCycle{
+    width: 183.109px;
+    height: 29px;
+    flex-shrink: 0;
+    position: relative;
+}
+#isWishCycle{
+    background-image: url('../images/是否循环.svg');
+    width: 183.109px;
+    height: 23px;
+    flex-shrink: 0;
+    margin-top: 20px;
+    margin-left: 51px;
+    position: absolute;
+
+}
+#WishCycle{
+    background-image: url('../images/Vector 48.svg');
+    position:absolute;
+    margin-top: 13px;
+    margin-left: 51px;
+    width: 22.5px;
+    height: 25px;
+    flex-shrink: 0;
+}
+#addWishButton{
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/Frame 42.svg');
+    background-repeat: no-repeat;
+    background-color: transparent;
+    margin-top: 36px;
+    margin-left: 231px;
+}
+
+#viewWishButton{
+    width: 185px;
+height: 48px;
+flex-shrink: 0;
+    border-radius: 35px;
+border: 4px solid #FFF;
+background: #FFF0CE;
+box-shadow: 0px 8px 32px 0px rgba(238, 214, 179, 0.35);
+margin-top: 64px;
+margin-left: 66px;
+
+}

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import { useState, SetStateAction } from "react"
 import { message } from "antd";
+import './SignUp.css'
 
 
 const SignUp = () => {
@@ -113,14 +114,16 @@ const SignUp = () => {
         }
     }
     return (
-      <div>
+      <div className="SignUp">
+        <p  id='Welcome'>欢迎注册</p>
+        <div className='InputInfo'> 
         <input
           type="email"
           placeholder="邮箱"
           value={email}
           onChange={isValidEmail}
         />
-        <p>{emailError&&<p>{emailError}</p>}</p>
+        <p>666{emailError&&<p>{emailError}</p>}</p>
         <input
           type="password"
           placeholder="密码"
@@ -136,13 +139,16 @@ const SignUp = () => {
           value={verificationCode}
           onChange={(e) => setVerificationCode(e.target.value)}
         />
-        <button onClick={handleSendVerificationCode} disabled={isSending}>
+        </div>
+        <button id='SendCodeBtn' onClick={handleSendVerificationCode} disabled={isSending}>
           {isSending? `${countdown} 秒后重新发送` : '发送验证码'}
         </button>
         <p>{verifyError&&<p>{verifyError}</p>}</p>
-        <button onClick={handleRegister}>注册</button>
-        <input type="checkbox" id='rememberMe' checked={isRememberMe} onChange={() => setIsRememberMe(!isRememberMe)} />
-        <label htmlFor='rememberMe'>记住我</label>
+        {/* <div className='isRemember'><label htmlFor="Remember" id='RememberLabel'> <input type="checkbox" id='Remember' checked={isRememberMe} onChange={() => setIsRememberMe(!isRememberMe)} />记住我</label></div> */}
+        <label htmlFor="Remember" id='RememberLabel'> <input type="checkbox" id='Remember' checked={isRememberMe} onChange={() => setIsRememberMe(!isRememberMe)} />记住我</label>
+        <button id='SIgnUpBTn'onClick={handleRegister}>注册</button>
+        <button id='SIgnUpBTn'onClick={handleRegister}>注册</button>
+        <button id='toLogin'>已有账号？去登录</button>
       </div>
     );
   };

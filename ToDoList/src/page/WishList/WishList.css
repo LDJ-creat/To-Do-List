@@ -1,0 +1,39 @@
+/* .WishList {
+    background-image: url('../../images/背景垫图.png');
+    width: 390px;
+   height: 833px;
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-repeat: no-repeat;
+
+}
+.WishListBack {
+    background-image: url('../../images/Component 6.svg');
+    margin-top:-718px ;
+    margin-left: -81px;
+} */
+
+.Wish-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(min-content, 1fr)); */
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    width: 600px;
+  }
+  
+  .task-item {
+    background-color: #f0f0f0;
+    padding: 10px;
+    
+        /* display: inline-block; */
+        display: -webkit-box;
+        word-wrap: break-word;
+        /* min-width: 0; */
+        /* height: 300px; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+      
+      
+  }

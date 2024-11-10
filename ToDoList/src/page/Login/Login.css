@@ -1,0 +1,86 @@
+.Login{
+    width: 390px;
+height: 459px;
+flex-shrink: 0;
+border-radius: 51px 51px 0px 0px;
+background: #FFF;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+position: relative;
+}
+#welcome{
+    color: #000;
+font-family: "Abhaya Libre ExtraBold";
+font-size: 48px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+margin-top: -248px;
+margin-left: 10px;
+position: absolute;
+}
+.InputIfo{
+    width: 350px;
+    height: 150px;
+    margin-top: 26px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    position: absolute;
+}
+input{
+    width: 293px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 33px;
+border: 2px solid #D1D1D1;
+background: #FFF;
+padding-left:30px;
+}
+
+#email{
+    margin-left: 22px;
+    margin-bottom: 19px;
+}
+#password{
+    margin-left: 22px;
+    /* margin-top: -10px; */
+}
+p{
+    margin-left: 44px;
+    width: 301px;
+    height: 5px;
+    color:red;
+    font-size: 12px;
+    font-style: normal;
+    margin-top:0px;
+}
+
+.RememberLabel{
+    color:#000;
+}
+#remember{
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    margin-left: 43px;
+}
+#loginBtn{
+    width: 293px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 33px;
+border: 2px solid #FFBB8E;
+background: #FFBB8E;
+margin-top: 360px;
+margin-left: 10px;
+}
+#toRegister{
+color: #FFBB8E;
+font-family: "Abhaya Libre ExtraBold";
+font-size: 10px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}

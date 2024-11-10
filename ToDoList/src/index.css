@@ -101,3 +101,7 @@ background-color: transparent;
 button:active{
   transform: scale(1.5);
 }
+div{
+  word-break:break-all ;
+  word-wrap: break-word;
+}

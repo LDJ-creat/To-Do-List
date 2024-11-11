@@ -74,7 +74,7 @@ interface Task {
     
     <div className="task-list">
     <div id='Setting'></div>
-    <button id='back'></button>
+    <button id='TaskListBack'></button>
   
       <Droppable droppableId="todo">
           {((provided:any)=>(
@@ -114,13 +114,16 @@ interface Task {
         /> */}
          {/* <button onClick={()=>setRecycle(true)}>循环</button> <button onClick={()=>setRecycle(false)}>限时</button>
          <button onClick={handleAddTask}>添加任务</button> */}
-            <div id='add'></div>
+            <button id='TaskListAdd'></button>
             <div id='footer'>
                 <img src={FooterDor1} alt="FooterDor1" id='FooterDor1' />
                 <img src={FooterDor2} alt="FooterDor2" id='FooterDor2' />
-                <img src={listIcon} alt="listIcon" id='listIcon' />
+                {/* <img src={listIcon} alt="listIcon" id='listIcon' />
                 <img src={chartIcon} alt="chartIcon" id='chartIcon' />
-                <img src={wishesIcon} alt="wishesIcon" id='wishesIcon'/>
+                <img src={wishesIcon} alt="wishesIcon" id='wishesIcon'/> */}
+                <button id='listIcon'></button>
+                <button  id='chartIcon' ></button>
+                <button id='wishesIcon'></button>
                 <span id='list'>清单</span>
                 <span id='wishes'>心愿</span>
             </div>

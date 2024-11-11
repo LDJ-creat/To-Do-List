@@ -1,4 +1,4 @@
-#bgi{
+#addTaskMenu{
     width: 347.592px;
     height: 460px;
     flex-shrink: 0;
@@ -52,41 +52,45 @@ font-weight: 400;
 line-height: 24px;
 }
 #Rectangle{
-    width: 245px;
+    width: 294px;
 height: 3px;
 font-weight: 700;
 color:rgba(185, 89, 6, 0.72);
-margin-left: 40px;
+margin-left: 26px;
 margin-top: -12px;
 }
-#setCycle{
+#setTaskCycle{
     width: 183.109px;
     height: 29px;
     flex-shrink: 0;
     position: relative;
 }
-#isCycle{
+#isTaskCycle{
     background-image: url('../images/是否循环.svg');
     width: 183.109px;
-    height: 29px;
+    height: 23px;
     flex-shrink: 0;
     margin-top: 20px;
     margin-left: 51px;
+    border: none;
     position: absolute;
 
 }
-#Cycle{
+#TaskCycle{
     background-image: url('../images/Vector 48.svg');
     position:absolute;
     margin-top: 13px;
     margin-left: 51px;
-    width: 22.5px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     flex-shrink: 0;
+    background-color: transparent;
+    border:none;
+    background-repeat: no-repeat;
 }
 #addTaskButton{
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 57px;
     background-image: url('../images/Frame 42.svg');
     background-repeat: no-repeat;
     background-color: transparent;

@@ -1,25 +1,49 @@
 
 #wish{
-    width: 322.592px;
-    height: 303.44px;
+    width: 412.592px;
+    height: 600px;
     display:flex;
     flex-direction: column;
     justify-content: center; 
     align-content: space-around;
     flex-wrap: wrap; 
-
+    position:relative;
 }
 
 #select ,#my-wish{
+    width: 361px;
+    height: 153px;
+    flex-shrink: 0;
+    color: #B95600;
+    /* border-radius: 31px; */
+    /* border: 4px solid #FFF; */
+    border:none;
+    border-radius: 0%;
+    background: transparent;
+    /* box-shadow: 0px 0px 7.8px 0px rgba(179, 72, 0, 0.21); */
+    background-image: url('../images/抽取心愿框.svg');
+    padding-left: 69px;
+    padding-top:39px;
+    font-size: 27px;
+
+}
+
+#WishMenu01,#WishMenu02{
     width: 312.592px;
     height: 112.447px;
     flex-shrink: 0;
     border-radius: 31px;
-    border: 4px solid #FFF;
-    background: #FFF0CE;
-    box-shadow: 0px 0px 7.8px 0px rgba(179, 72, 0, 0.21);
-
+   background-color: transparent;
+   position: absolute;
+   border: none;
 }
+#WishMenu01{
+    top:18px;
+}
+#WishMenu02{
+    top:180px;
+}
+
 
 #select{
     /* margin-top:0px; */
@@ -32,7 +56,7 @@
     cursor: pointer;
 }
 
-#WishMenuDor1{
+.WishMenuDor1{
     width: 318px;
     height:123.998px;
     flex-shrink: 0;
@@ -40,21 +64,27 @@
     margin-left:-3px;
     margin-top:-9px;
 }
-#WishMenuDor2,#WishMenuDor3{
+.WishMenuDor2,.WishMenuDor3{
     width: 84px;
     height: 94px;
     flex-shrink: 0;
-    margin-top: -94.75px;
-    margin-left: 8px;
+
     background-repeat: no-repeat;
+    position: absolute;
 }
-#WishMenuDor2{
+.WishMenuDor2{
     background-image: url('../images/WishMenuDor2.svg');
+    top:156px;
+    left:71px;
 }
 
-#WishMenuDor3{
+
+.WishMenuDor3{
     background-image: url('../images/WishMenuDor3.svg');
+    top:374px;
+    left:71px;
 }
+
 #word{
     color: #B95600;
     font-family: ABeeZee;

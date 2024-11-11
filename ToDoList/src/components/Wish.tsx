@@ -13,16 +13,16 @@ const Wish = () => {
         <div id='wish'>
  
         
-        <div id='select'>
-            <div id='WishMenuDor1'></div>
-            <div id='WishMenuDor2'> </div>
-            <div id='word'>抽取心愿</div>
-        </div>
-        <div id='my-wish'>
-            <div id='WishMenuDor1'></div>
-            <div id='WishMenuDor3'> </div>
-            <div id='word'>我的心愿</div>
-        </div>
+        <button id='select'> 抽取心愿</button>
+            {/* <div className='WishMenuDor1'></div> */}
+            <div className='WishMenuDor2'> </div>
+            {/* <button id='WishMenu01'>抽取心愿</button> */}
+        
+        <button id='my-wish'> 我的心愿</button>
+            {/* <div className='WishMenuDor1'></div> */}
+            <div className='WishMenuDor3'> </div>
+            {/* <button id='WishMenu02'>我的心愿</button> */}
+        
         
         </div>
     )

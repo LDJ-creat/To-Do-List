@@ -16,6 +16,8 @@ import MyWish from "../page/MyWish/MyWish.tsx";
 import AddWish from "../components/addWish.tsx";
 import WishList from "../page/WishList/WishList.tsx";
 import Setting from "../page/Setting/Setting.tsx";
+import ModifyPassword from "../page/ModifyPassword/ModifyPassword..tsx";
+// import AddTask from "../components/addTask.tsx";
 // const token=localStorage.getItem('token')
 const router=createBrowserRouter([
 {
@@ -44,6 +46,15 @@ const router=createBrowserRouter([
       }
    ]
 },
+// {
+//    path:'/rehome',
+//    element:<Home/>,
+//    children:[
+//       {
+//          path:"",
+//          element:<PieChart/>
+//       }]
+// },
 {
    path:'*',
    element:<NotFound/>
@@ -57,7 +68,7 @@ const router=createBrowserRouter([
    element:<AddTask/>
 },
 {
-   path:'randomWish',
+   path:'WishMenu',
    element:<Wish/>
 },
 {
@@ -65,7 +76,7 @@ const router=createBrowserRouter([
    element:<Account/>
 },
 {
-   path:'chooseWish',
+   path:'randomWish',
    element:<RandomWish/>
 },
 {
@@ -87,6 +98,10 @@ const router=createBrowserRouter([
 {
    path:'/setting',
    element:<Setting/>
+},
+{
+   path:'/modifyPassword',
+   element:<ModifyPassword/>
 }
 ])
 

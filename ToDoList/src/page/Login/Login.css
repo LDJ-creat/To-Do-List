@@ -1,25 +1,25 @@
 .Login{
     width: 390px;
-height: 459px;
-flex-shrink: 0;
-border-radius: 51px 51px 0px 0px;
-background: #FFF;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-position: relative;
+    height: 459px;
+    flex-shrink: 0;
+    border-radius: 51px 51px 0px 0px;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
-#welcome{
+.welcomeLogin{
     color: #000;
-font-family: "Abhaya Libre ExtraBold";
-font-size: 48px;
-font-style: normal;
-font-weight: 800;
-line-height: normal;
-margin-top: -248px;
-margin-left: 10px;
-position: absolute;
+    font-family: "Abhaya Libre ExtraBold";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    top:18px;
+    left: 59px;
+    position: absolute;
 }
 .InputIfo{
     width: 350px;
@@ -34,9 +34,9 @@ input{
     height: 56px;
     flex-shrink: 0;
     border-radius: 33px;
-border: 2px solid #D1D1D1;
-background: #FFF;
-padding-left:30px;
+    border: 2px solid #D1D1D1;
+    background: #FFF;
+    padding-left:30px;
 }
 
 #email{
@@ -47,7 +47,7 @@ padding-left:30px;
     margin-left: 22px;
     /* margin-top: -10px; */
 }
-p{
+#LoginError{
     margin-left: 44px;
     width: 301px;
     height: 5px;
@@ -55,8 +55,8 @@ p{
     font-size: 12px;
     font-style: normal;
     margin-top:0px;
+    margin-bottom: 3px;
 }
-
 .RememberLabel{
     color:#000;
 }
@@ -71,16 +71,28 @@ p{
     height: 56px;
     flex-shrink: 0;
     border-radius: 33px;
-border: 2px solid #FFBB8E;
-background: #FFBB8E;
-margin-top: 360px;
-margin-left: 10px;
+    border: 2px solid #FFBB8E;
+    background: #FFBB8E;
+    margin-top: 374px;
+    margin-left: 10px;
+    color: #000;
 }
 #toRegister{
-color: #FFBB8E;
-font-family: "Abhaya Libre ExtraBold";
-font-size: 10px;
-font-style: normal;
-font-weight: 800;
-line-height: normal;
+    color: #FFBB8E;
+    font-family: "Abhaya Libre ExtraBold";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    background-color: transparent;
+    border: none;
+    border-radius: 0px;
+    height: 13px;
+}
+#SignUpRemember{
+    position: absolute;
+    top: 466px;
+    left: 86px;
+    color:black;
+
 }

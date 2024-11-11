@@ -21,14 +21,15 @@
  margin-left:0px;
 
 } */
-#back{
-    width: 47px;
-height: 47px;
+#TaskListBack{
+    width: 49px;
+height: 49px;
 flex-shrink: 0;
 margin-top: -726px;
-margin-left:-360px;
+margin-left:-316px;
 background-image: url('../../images/Component 6.svg');
 position:absolute;
+cursor: pointer;
 }
 #Setting{
     width: 36px;
@@ -38,6 +39,7 @@ position:absolute;
     margin-top: -733px;
     margin-left: 320px;
     position: absolute;
+    cursor: pointer;
 }
 #task{
     width: 358px;
@@ -57,63 +59,16 @@ height: 20px;
 flex-shrink: 0;
 background-image: url('../../images/Vector 48.svg');
 }
-/* #FinishTasks{
-    width: 359px;
-    height: 162px;
-    margin-top:423px;
-    margin-left:15px;
-    flex-shrink: 0;
-    border-radius: 31px;
-    border: 6px solid #FFF;
-    background: #FFF0CE;
-    box-shadow: 0px 0px 7.8px 0px rgba(179, 72, 0, 0.21);
-    position:relative;
-}
 
-#Decoration1{
-    width: 54px;
-    height: 33px;
-    flex-shrink: 0;
-    margin-top: -8px;
-    margin-left:29px;
-    
-    position:absolute;
-}
-#Decoration2{
-    width: 47px;
-    height: 9.442px;
-    flex-shrink: 0;
-    margin-top:9px;
-    margin-left:297px;
-    position:absolute;
-   
-}
-#Content{    
-    color: #F8A00C;
-    font-family: ABeeZee;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    position: absolute;
-    margin-top:38px;
-    margin-left:28px;
-    word-wrap: break-word;
-    word-break: break-all;
-}
-#headContent{
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-} */
-#add{
-    width: 53px;
-    height: 53px;
+
+#TaskListAdd{
+    width: 57px;
+    height: 56px;
     flex-shrink: 0;
     margin-top:28px;
     margin-left:306px;
     background-image: url('../../images/Component 5.svg');
+    background-repeat: no-repeat;
 }
 #footer{
     width: 359px;
@@ -154,14 +109,21 @@ background-image: url('../../images/Vector 48.svg');
     margin-left:16px;
     margin-top:7.05px;
     position: absolute;
+    border-radius: 0%;
+    border:none;
+    background-color: transparent;
 }
 #chartIcon{
     width: 165px;
-height: 162px;
-flex-shrink: 0;
-position: absolute;
-margin-left:92px;
-margin-top:-41px;
+    height: 162px;
+    flex-shrink: 0;
+    position: absolute;
+    margin-left:92px;
+    margin-top:-41px;
+    border-radius: 0%;
+    border:none;
+    background-color: transparent;
+
 }
 #wishesIcon{
     width: 74px;
@@ -170,20 +132,23 @@ margin-top:-41px;
     position: absolute;
     margin-left:263px;
     margin-top:-2px;
+    border-radius: 0%;
+    border:none;
+    background-color: transparent;
 }
 #list{
-width: 25px;
-height: 11px;
-flex-shrink: 0;
-color: #C76C01;
-font-family: "Abhaya Libre ExtraBold";
-font-size: 12px;
-font-style: normal;
-font-weight: 800;
-line-height: normal;
-position:absolute;
-margin-top:68px;
-margin-left:36px;
+    width: 25px;
+    height: 11px;
+    flex-shrink: 0;
+    color: #C76C01;
+    font-family: "Abhaya Libre ExtraBold";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position:absolute;
+    margin-top:68px;
+    margin-left:36px;
 }
 #wishes{
     color: #C86D01;

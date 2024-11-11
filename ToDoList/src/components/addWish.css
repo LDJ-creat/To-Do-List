@@ -70,23 +70,29 @@ margin-top: -12px;
     width: 183.109px;
     height: 23px;
     flex-shrink: 0;
-    margin-top: 20px;
-    margin-left: 51px;
+    top: 20px;
+    left: 51px;
     position: absolute;
+    border:none;
+    background-color: transparent;
+    background-repeat: no-repeat;
 
 }
 #WishCycle{
     background-image: url('../images/Vector 48.svg');
     position:absolute;
-    margin-top: 13px;
-    margin-left: 51px;
-    width: 22.5px;
-    height: 25px;
+    top: 13px;
+    left: 51px;
+    width: 30px;
+    height: 30px;
     flex-shrink: 0;
+    border:none;
+    background-color: transparent;
+    background-repeat: no-repeat;
 }
 #addWishButton{
-    width: 60px;
-    height: 60px;
+    width: 57px;
+    height: 57px;
     background-image: url('../images/Frame 42.svg');
     background-repeat: no-repeat;
     background-color: transparent;

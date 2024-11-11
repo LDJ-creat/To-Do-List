@@ -121,8 +121,9 @@ const store = configureStore({
 });
 
 
-export const { addTask, deleteTask,updateTask,finishTask } = taskSlice.actions;
-export const {addWish} =wishSlice.actions;
+const { addTask, deleteTask,updateTask,finishTask } = taskSlice.actions;
+ const {addWish} =wishSlice.actions;
+ export { addTask, deleteTask,updateTask,finishTask,addWish };
 export default store;
 
 

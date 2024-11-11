@@ -3,7 +3,7 @@ import  chooseImg from '../../images/心愿卡（背面）.svg'
 const RandomWish = () => {
     return(
         <div className='RandomWish'>
-            <button className='backBtn'></button>
+            <button className='RandomWish-backBtn'></button>
             {/* <div className='chooseBox'>
                 <div className='chooseImg'></div>
                 <img src={chooseImg} alt="" />

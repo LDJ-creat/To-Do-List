@@ -40,7 +40,7 @@ const Login=()=>{
     };
     return(
         <div className='Login'>
-         <p id='welcome'>欢迎登录</p>   
+         <p className="welcomeLogin">欢迎登录</p>   
          <div className='InputIfo'> 
       <input
         type="email"
@@ -58,7 +58,7 @@ const Login=()=>{
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <p>{errorMessage && <p>{errorMessage}</p>}</p>
+      <p id="LoginError">{errorMessage && <p>{errorMessage}</p>}</p>
       <label htmlFor="remember" className="RememberLabel"><input type="checkbox" id="remember" checked={isRememberMe} onChange={()=>setIsRememberMe(!isRememberMe)} />记住我</label>
       {/* <label htmlFor="remember">记住我</label> */}
       </div>

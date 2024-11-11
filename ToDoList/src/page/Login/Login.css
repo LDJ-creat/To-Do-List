@@ -1,4 +1,4 @@
-.Login{
+#Login{
     width: 390px;
     height: 459px;
     flex-shrink: 0;
@@ -24,7 +24,7 @@
 .InputIfo{
     width: 350px;
     height: 150px;
-    margin-top: 26px;
+    top: 142px;
     margin-bottom: 20px;
     margin-left: 10px;
     position: absolute;
@@ -73,8 +73,8 @@ input{
     border-radius: 33px;
     border: 2px solid #FFBB8E;
     background: #FFBB8E;
-    margin-top: 374px;
-    margin-left: 10px;
+    margin-top: 367px;
+    margin-left: 33px;
     color: #000;
 }
 #toRegister{
@@ -88,6 +88,7 @@ input{
     border: none;
     border-radius: 0px;
     height: 13px;
+    margin-left: 33px;
 }
 #SignUpRemember{
     position: absolute;

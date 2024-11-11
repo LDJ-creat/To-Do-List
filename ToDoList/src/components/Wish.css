@@ -1,13 +1,12 @@
 
-#wish{
+#wishMenu{
     width: 412.592px;
     height: 600px;
-    display:flex;
     flex-direction: column;
     justify-content: center; 
     align-content: space-around;
     flex-wrap: wrap; 
-    position:relative;
+    position: absolute;
 }
 
 #select ,#my-wish{
@@ -38,10 +37,12 @@
    border: none;
 }
 #WishMenu01{
-    top:18px;
+    top:26%;
+    left:13%;
 }
 #WishMenu02{
-    top:180px;
+    top:62%;;
+    left:13%;
 }
 
 
@@ -49,11 +50,17 @@
     /* margin-top:0px; */
     align-self: flex-start;
     cursor: pointer;
+    position:absolute;
+    top:18%;
+    left:2%;
 }
 #my-wish{
-    margin-top:46px;
+    
     align-self: flex-end;
     cursor: pointer;
+    position: absolute;
+    top:54%;
+    left:2%;
 }
 
 .WishMenuDor1{

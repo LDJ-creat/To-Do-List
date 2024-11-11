@@ -113,8 +113,18 @@ const SignUp = () => {
             return true
         }
     }
+    const handleBackToAccount=()=>{
+      const  signUp = document.getElementById('SignUp')
+      const AccountBackground=document.getElementById('Account')
+      if(signUp){
+          signUp.style.display = 'none'
+      }
+      if(AccountBackground){
+          AccountBackground.style.filter='blur(0px)'
+      }    
+    }
     return (
-      <div className="SignUp">
+      <div id="SignUp">
         <p  className="welcomeRegister">欢迎注册</p>
         <div className='InputRegisterInfo'> 
         <input
@@ -124,7 +134,7 @@ const SignUp = () => {
           value={email}
           onChange={isValidEmail}
         />
-        <p className='RegisterEmailError'>666{emailError&&<p className="RegisterEmailError">{emailError}</p>}</p>
+        <p className='RegisterEmailError'>{emailError&&<p className="RegisterEmailError">{emailError}</p>}</p>
         <input
           id='RegisterPassword'
           type="password"
@@ -132,14 +142,14 @@ const SignUp = () => {
           value={password}
           onChange={isValidPassword}
         />
-        <p className='RegisterPasswordError'>666{passwordError&&<p className="RegisterPasswordError">{passwordError}</p>}</p>
+        <p className='RegisterPasswordError'>{passwordError&&<p className="RegisterPasswordError">{passwordError}</p>}</p>
         <input 
           id="RegisterConfirmPassword"
           type="text" 
           placeholder="密码确认"  
           value={passwordConfirm} 
           onChange={handlePasswordConfirm} />
-        <p className='RegisterConfirmPasswordError'>666{confirmError&&<p className="RegisterConfirmPasswordError">{confirmError}</p>}</p>
+        <p className='RegisterConfirmPasswordError'>{confirmError&&<p className="RegisterConfirmPasswordError">{confirmError}</p>}</p>
         <input
           id="RegisterCode"
           type="text"
@@ -151,13 +161,13 @@ const SignUp = () => {
         <button id='SendCodeBtn' onClick={handleSendVerificationCode} disabled={isSending}>
           {isSending? `${countdown} 秒后重新发送` : '发送验证码'}
         </button>
-        <p className='SendCodeError'>666{verifyError&&<p className="SendCodeError">{verifyError}</p>}</p>
+        <p className='SendCodeError'>{verifyError&&<p className="SendCodeError">{verifyError}</p>}</p>
         {/* <div className='isRemember'><label htmlFor="Remember" id='RememberLabel'> <input type="checkbox" id='Remember' checked={isRememberMe} onChange={() => setIsRememberMe(!isRememberMe)} />记住我</label></div> */}
-        <label htmlFor="RegisterRemember" id='RegisterRememberLabel'> <input type="checkbox" id='RegisterRemember' checked={isRememberMe} onChange={() => setIsRememberMe(!isRememberMe)} />记住我</label>
+        <label htmlFor="RegisterRemember" id='RegisterRememberLabel'> <input type="checkbox" id='RegisterRemember' checked={isRememberMe} onChange={() => setIsRememberMe(!isRememberMe)} /></label>
         <span id='SignUpRemember'>记住我</span>
         <button id='SignUpBtn'onClick={handleRegister}>注册</button>
         
-        <button id='toLogin'>已有账号？去登录</button>
+        <button id='toLogin' onClick={handleBackToAccount}>已有账号？去登录</button>
       </div>
     );
   };

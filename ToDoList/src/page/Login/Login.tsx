@@ -38,8 +38,19 @@ const Login=()=>{
         
       }
     };
+
+    const handleBackToAccount = () => {
+      const login = document.getElementById('Login')
+      const AccountBackground=document.getElementById('Account')
+      if(login){
+          login.style.display = 'none'
+      }
+      if(AccountBackground){
+          AccountBackground.style.filter='blur(0px)'
+      }
+    }
     return(
-        <div className='Login'>
+        <div id='Login'>
          <p className="welcomeLogin">欢迎登录</p>   
          <div className='InputIfo'> 
       <input
@@ -63,7 +74,7 @@ const Login=()=>{
       {/* <label htmlFor="remember">记住我</label> */}
       </div>
       <button onClick={handleLogin} id='loginBtn'>登录</button>
-      <button id='toRegister'>还没有账号？注册一个</button>
+      <button id='toRegister' onClick={handleBackToAccount}>还没有账号？注册一个</button>
         
         </div>
     )

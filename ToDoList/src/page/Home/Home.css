@@ -22,13 +22,19 @@
 
 }
 
-#Setting{
+#HomeSetting{
     width: 36px;
     height: 10px;
     flex-shrink: 0;
     background-image: url('../../images/Setting.svg');
-    margin-top: 30px;
-    margin-left: 320px;
+    /* margin-top: 30px;
+    margin-left: 320px; */
+    border:none ;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    position:absolute;
+    top: 17px;
+    right: 13px;
 }
 #FinishTasks{
     width: 359px;
@@ -192,4 +198,19 @@ margin-left:36px;
     left: 30px;
     display:none;
    
+}
+/* #addWishMenu {
+    display: none;
+} */
+
+#wishMenu{
+    left:-9px;
+    display:none;
+}
+
+#setting-nav{
+    position: absolute;
+    top: 27px;
+    right:8px;
+    /* display:none; */
 }

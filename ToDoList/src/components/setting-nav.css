@@ -1,0 +1,46 @@
+#setting-nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../images/Vector.svg');
+    width: 120px;
+height: 103px;
+flex-shrink: 0;
+/* fill: #FFF0CE; */
+filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
+
+}
+
+#finishRecord,#personal-center{
+
+color: #F8A00C;
+font-family: "Abhaya Libre ExtraBold";
+font-size: 15px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+letter-spacing: 2.7px;
+background-color: transparent;
+border: none;
+width:100px;
+height: 45px;
+position:absolute;
+/* margin-top:-21px;
+margin-bottom:-32px; */
+}
+#finishRecord{
+    top:19px;
+    right:10px;
+}
+#setting-nav-Rectangle{
+    color: #F8A00C;   
+    margin-bottom: 6px;
+    position:absolute;
+    top: 34px;
+    right: 28px;
+}
+#personal-center{
+    top:62px;
+    left:10px;
+}

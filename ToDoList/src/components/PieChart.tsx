@@ -9,12 +9,14 @@ import { addTask } from '../Store.ts';
 Chart.register(...registerables);
 
 interface Task {
-  id: number;
-  name: string;
+  id: string;
+  event: string;
+  completed: boolean;
+  is_cycle: boolean;
   description: string;
-  isCompleted: boolean;
+  importanceLevel:number;
+  completed_Date: string;
 }
-
 
 
 
@@ -33,7 +35,7 @@ const PieChart: React.FC = () => {
     if(tasks.length>0){
     let a1=100/(Math.pow(1.6,tasks.length)-1)
     tasks.map((task: Task) => {
-      tempLabel.push(task.name);
+      tempLabel.push(task.event);
     });
 
     for (let i = 0; i < tasks.length; i++){
@@ -48,19 +50,19 @@ const PieChart: React.FC = () => {
   }
   }, [tasks]);
 
-  const handleAddTask = () => {
-    if (newTaskName.trim()!== '') {
-      const newTask: Task = {
-        id: Date.now(),
-        name: newTaskName,
-        description: newTaskDescription,
-        isCompleted: false,
-      };
-      dispatch(addTask(newTask));
-      setNewTaskName('');
-      setNewTaskDescription('');
-    }
-  };
+  // const handleAddTask = () => {
+  //   if (newTaskName.trim()!== '') {
+  //     const newTask: Task = {
+  //       id: Date.now().toString(),
+  //       event: newTaskName,
+  //       description: newTaskDescription,
+  //       isCompleted: false,
+  //     };
+  //     dispatch(addTask(newTask));
+  //     setNewTaskName('');
+  //     setNewTaskDescription('');
+  //   }
+  // };
 
    const data={
     labels: taskLabel,//如何让label显示在中间，而不是在左侧？

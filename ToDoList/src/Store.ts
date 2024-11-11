@@ -1,13 +1,21 @@
 import axios from 'axios'
 interface Task {
-    id: number;
-    name: string;
+    id: string;
+    event: string;
+    completed: boolean;
+    is_cycle: boolean;
     description: string;
-    isCompleted: boolean;
-    isRecycle: boolean;
+    importanceLevel:number;
+    completed_Date: string;
   }
-
-  import { configureStore } from '@reduxjs/toolkit';
+interface Wish {
+  id:string;
+  event:string;
+  is_cycle:boolean;
+  description:string;
+  is_shared:boolean;
+}
+import { configureStore } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
 
@@ -18,7 +26,7 @@ interface TaskState {
 }
 
 interface WishState{
-  wishes: Task[];
+  wishes: Wish[];
 }
 const initialState: TaskState = {
 
@@ -39,16 +47,31 @@ const taskSlice = createSlice({
       // state.tasks.map((item,index)=>{
       //   item.id=index;
       // })
-      const newTasks:Task[]=[]
-      for (let i=0;i<state.tasks.length;i++){
-        newTasks.push({id:i,
-          name:state.tasks[i].name,
-          description:state.tasks[i].description,            
-          isCompleted:state.tasks[i].isCompleted,
-          isRecycle:state.tasks[i].isRecycle})
+      // const newTasks:Task[]=[]
+      // for (let i=0;i<state.tasks.length;i++){
+      //   newTasks.push({
+      //     id:Date.now().toString(),
+      //     event:state.tasks[i].event,
+      //     description:state.tasks[i].description,            
+      //     isCompleted:state.tasks[i].isCompleted,
+      //     isCycle:state.tasks[i].isCycle,
+      //     completed_Date:"",
+      // })
+      // }
+      // state.tasks=newTasks;
+      const token=localStorage.getItem('token');
+      if (token){
+        const add=async()=>{
+          await axios.post('url',
+            JSON.stringify(action.payload),
+            {headers:{Authorization:`Bearer ${token}`}},
+          )
+        };
+        add();
+      }else{
+        localStorage.setItem('tasks', JSON.stringify(state.tasks));
       }
-      state.tasks=newTasks;
-      localStorage.setItem('tasks', JSON.stringify(state.tasks));
+      // localStorage.setItem('tasks', JSON.stringify(state.tasks));
       
     },
     deleteTask:(state, action)=>{
@@ -56,16 +79,27 @@ const taskSlice = createSlice({
         // state.tasks.map((item,index)=>{
         //   item.id=index;
         // })
-        const newTasks:Task[]=[]
-        for (let i=0;i<state.tasks.length;i++){
-          newTasks.push({id:i,
-            name:state.tasks[i].name,
-            description:state.tasks[i].description,            
-            isCompleted:state.tasks[i].isCompleted,
-            isRecycle:state.tasks[i].isRecycle})
+        // const newTasks:Task[]=[]
+        // for (let i=0;i<state.tasks.length;i++){
+        //   newTasks.push({id:i,
+        //     name:state.tasks[i].name,
+        //     description:state.tasks[i].description,            
+        //     isCompleted:state.tasks[i].isCompleted,
+        //     isRecycle:state.tasks[i].isRecycle})
+        // }
+        // state.tasks=newTasks;
+        const token=localStorage.getItem('token');
+        if(token){
+          const deleteTask=async()=>{
+            await axios.delete(`url/${action.payload}`,
+            {headers:{Authorization:`Bearer ${token}`}},
+          )
+          };
+          deleteTask();
+        }else{
+          localStorage.setItem('tasks', JSON.stringify(state.tasks));
         }
-        state.tasks=newTasks;
-        localStorage.setItem('tasks', JSON.stringify(state.tasks));
+        // localStorage.setItem('tasks', JSON.stringify(state.tasks));
 
     },
     updateTask:(state, action)=>{//
@@ -75,24 +109,42 @@ const taskSlice = createSlice({
         // })
         const newTasks:Task[]=[]
         for (let i=0;i<state.tasks.length;i++){
-          newTasks.push({id:i,
-            name:state.tasks[i].name,
+          newTasks.push({
+            id:state.tasks[i].id,
+            event:state.tasks[i].event,
             description:state.tasks[i].description,            
-            isCompleted:state.tasks[i].isCompleted,
-            isRecycle:state.tasks[i].isRecycle})
+            completed:state.tasks[i].completed,
+            is_cycle:state.tasks[i].is_cycle,
+            importanceLevel:i,
+            completed_Date:state.tasks[i].completed_Date,
+          })
         }
         state.tasks=newTasks;
+        const token=localStorage.getItem('token');
+        if(token){
+          const updateTask=async()=>{
+            await axios.put(`url`,
+            JSON.stringify(state.tasks),
+            {headers:{Authorization:`Bearer ${token}`}},
+          )
+          };
+          updateTask();
+        }else{
+          localStorage.setItem('tasks', JSON.stringify(state.tasks));
+        }
         
-        localStorage.setItem('tasks', JSON.stringify(state.tasks));
+        // localStorage.setItem('tasks', JSON.stringify(state.tasks));
     },
+
     finishTask:(state, action)=>{
-      state.tasks[action.payload].isCompleted=true;
+      state.tasks[action.payload].completed=true;
+      state.tasks[action.payload].completed_Date=new Date().toISOString();
       const token=localStorage.getItem('token');
       if(token){
         const finish=async()=>{
           await axios.post('url',
             state.tasks,
-            {headers:{Authorization:`Bearer${token}`}},
+            {headers:{Authorization:`Bearer ${token}`}},
           )
         };
         finish();
@@ -109,9 +161,20 @@ const wishSlice = createSlice({
   reducers: {
     addWish: (state, action) => {
       state.wishes.push(action.payload);
+      const token=localStorage.getItem('token');
+      if(token){
+        const add=async()=>{
+          await axios.post('url',
+            JSON.stringify(action.payload),
+            {headers:{Authorization:`Bearer ${token}`}},
+          )
+        };
+        add();
+    }else{
+      localStorage.setItem('wishes', JSON.stringify(state.wishes));
     }
   }
-});
+}});
 
 const store = configureStore({
   reducer: {

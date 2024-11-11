@@ -17,6 +17,8 @@ import AddWish from "../components/addWish.tsx";
 import WishList from "../page/WishList/WishList.tsx";
 import Setting from "../page/Setting/Setting.tsx";
 import ModifyPassword from "../page/ModifyPassword/ModifyPassword..tsx";
+import SettingNav from "../components/setting-nav.tsx";
+import FinishRecord from "../page/Finish-record/Finish-record.tsx";
 // import AddTask from "../components/addTask.tsx";
 // const token=localStorage.getItem('token')
 const router=createBrowserRouter([
@@ -68,7 +70,7 @@ const router=createBrowserRouter([
    element:<AddTask/>
 },
 {
-   path:'WishMenu',
+   path:'/WishMenu',
    element:<Wish/>
 },
 {
@@ -76,7 +78,7 @@ const router=createBrowserRouter([
    element:<Account/>
 },
 {
-   path:'randomWish',
+   path:'/randomWish',
    element:<RandomWish/>
 },
 {
@@ -102,6 +104,14 @@ const router=createBrowserRouter([
 {
    path:'/modifyPassword',
    element:<ModifyPassword/>
+},
+{
+   path:'/settingNav',
+   element:<SettingNav/>
+},
+{
+   path:'/finishRecord',
+   element:<FinishRecord/>
 }
 ])
 

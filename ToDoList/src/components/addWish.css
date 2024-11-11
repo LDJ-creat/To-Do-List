@@ -1,4 +1,4 @@
-#addWishBgi{
+#addWishMenu{
     width: 347.592px;
     height: 460px;
     flex-shrink: 0;
@@ -52,7 +52,7 @@ font-weight: 400;
 line-height: 24px;
 }
 #Rectangle{
-    width: 245px;
+    width: 294px;
 height: 3px;
 font-weight: 700;
 color:rgba(185, 89, 6, 0.72);

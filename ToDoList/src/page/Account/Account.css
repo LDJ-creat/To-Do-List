@@ -1,4 +1,4 @@
-.Account {
+#Account {
     width: 390px;
     height: 844px;
     display:flex;
@@ -74,4 +74,12 @@ button{
     left: 82px;
     width: 54px;
     height: 30px;
+}
+
+#Login, #SignUp{
+    position: absolute;
+    bottom:5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
 }

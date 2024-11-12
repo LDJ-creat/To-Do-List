@@ -6,6 +6,7 @@ import { useState } from "react";
 import Wish from '../../components/Wish';
 import { useDispatch } from "react-redux";
 import { addWish } from "../../Store.ts";
+import { useNavigate } from "react-router-dom";
 
 interface ShareWish {
   id:string;
@@ -15,8 +16,14 @@ interface ShareWish {
   is_shared:boolean;
   view:number;
 }
-
-//因为服务器故障，暂时先写定一些数据
+interface Wish {
+  id:string;
+  event:string;
+  is_cycle:boolean;
+  description:string;
+  is_shared:boolean;
+}
+//因为服务器故障，无法从后端获取，暂时先写定一些数据
 let ShareWishList:ShareWish[] = [
   {id:'1',event:'走出',is_cycle:false,description:'春节快乐！',is_shared:true,view:100},
   {id:'2',event:'2022夏天',is_cycle:false,description:'夏天快乐！',is_shared:true,view:100},
@@ -30,9 +37,29 @@ let ShareWishList:ShareWish[] = [
   {id:'10',event:'2024夏天',is_cycle:false,description:'2024夏天快乐！',is_shared:true,view:100},
 ];
 const WishList = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [wishList, setWishList] = useState(ShareWishList);
-  const [showDetail, setShowDetail] = useState(false);
+  // const [showDetail, setShowDetail] = useState(false);
   const [isCycle, setIsCycle] = useState(false);
+
+  const ShowDetail = (index:number) => {
+    const speceficWish = document.getElementById(`detailWish-${index}`) as HTMLDivElement;
+    if(speceficWish){
+      speceficWish.style.display = 'block';
+    }
+  }
+  const HideDetail = (index:number) => {
+
+    const HiddenWish=document.querySelectorAll('.Wishlist-addWishMenu');
+    for(let i=0;i<HiddenWish.length;i++){
+      // HiddenWish[i].style.display='none';
+      const hiddenElement = HiddenWish[i] as HTMLElement; // 将Element类型断言为HTMLElement
+        hiddenElement.style.display = 'none';
+    }
+  }
+
+
     useEffect(() => {
       const getShareWishData=async ()=>{
         const response=await axios.get('url');
@@ -40,68 +67,43 @@ const WishList = () => {
       }
       getShareWishData();
     }, [])
-    const handleSubmit = () => {
-
+    const handleSubmit = (index:number) => {
+         const newWish:Wish={id:'',
+          event:wishList[index].event,
+          is_cycle:isCycle,
+          description:wishList[index].description,
+          is_shared:true,
+          };
+          dispatch(addWish(newWish))
+          navigate('/Home')
     }
     return(
         <div className='WishList'>
-             <button className='WishListBack'></button>
+             <button className='WishListBack' onClick={() => {()=>navigate('/Home')}}></button>
              <div className='Wish-grid'>
                  {wishList.map((item, index) => (
-                     <div key={index} className='Wish-item' onClick={() => {setShowDetail(true)}}>
+                     <div key={index} className='Wish-item' onClick={() => ShowDetail(index)}>
                          {item.event}---
                          {item.description}
                          (最近有{item.view}人看过)
-                         {showDetail&&<div id='Wishlist-addWishMenu' onClick={() => {setShowDetail(false)}}>  
-                          <button id="closeDetail"></button>
+
+                         <div className='Wishlist-addWishMenu' id={`detailWish-${index}`}>
+                          <button id="closeDetail" onClick={() => HideDetail(index)}></button>
                         <div id='detailWishName'>{item.event}</div>
                         <div id='detailRectangle'>——————————————</div>
                         <div  id='detailWishDescription'>{item.description}</div>
                         <div id='detail-setWishCycle'>
-                        <button id='isWishCycle' onClick={()=>setIsCycle(!isCycle)}></button>
-                        {isCycle&&<button id='WishCycle' onClick={()=>setIsCycle(!isCycle)}></button>}
+                        <button id='isShareWishCycle' onClick={()=>setIsCycle(!isCycle)}></button>
+                        {isCycle&&<button id='ShareWishCycle' onClick={()=>setIsCycle(!isCycle)}></button>}
                         </div>
-                        <button onClick={handleSubmit} id='detail-addWishButton'></button></div>}
+                        <button onClick={() =>handleSubmit } id='detail-addWishButton'></button></div>
                     </div>
-              // </div>
+              
 
 
                  ))}          
              </div>
         </div>
     )
-}
+  }
 export default WishList;
-// import React from 'react';
-
-// interface Task {
-//     id: number;
-//     title: string;
-//     description: string;
-//   }
-// const TaskList: React.FC = () => {
-//   const tasks: Task[] = [
-//     { id: 1, title: 'Task 1', description: 'This is task 1 description.' },
-//     { id: 2, title: 'Task 2', description: 'A longer description for task 2.' },
-//     { id: 3, title: 'Task 3', description: 'A third task description.' },
-//     // { id: 3, title: 'Task 4', description: 'A fourth task description.A fourth task descriptionA fourth task descriptionA fourth task description grid-template-columns: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr);' },
-//  { id: 4, title: 'Task 4', description: 'A fourth task description.A fourth task descriptionA fourth task descriptionA fourth task description grid-template-columns: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr); grid-template-columns: repeat(2, 1fr);' },
-// //  { id: 5, title: 'Task 5A fourth task description', description: 'A fifth task description.' },
-// //  { id: 6, title: 'Task 6', description: 'A sixth task description.' },
-// //  { id: 7, title: 'Task 7', description: 'A seventh task description.' },
-//     // 添加更多任务
-//   ];
-
-//   return (
-//     <div className="task-grid">
-//       {tasks.map(task => (
-//         <div key={task.id} className="task-item">
-//           <h3>{task.title}</h3>
-//           {task.description}
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default TaskList;

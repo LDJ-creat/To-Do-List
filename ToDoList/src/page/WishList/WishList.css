@@ -55,15 +55,97 @@ box-shadow: 0px 8px 32px 0px rgba(238, 214, 179, 0.35);
       
   }
 
-#Wishlist-addWishMenu{
-    position: absolute;
+.Wishlist-addWishMenu{
+    position: fixed;
     top: 14%;
     left: 50%;
     transform: translateX(-50%);
     width: 347.592px;
     height: 460px;
     flex-shrink: 0;
-background-image: url('../images/底框.svg');
+background-image: url('../../images/底框.svg');
 background-repeat: no-repeat;
+display:none;
     
+}
+
+#closeDetail{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    transform: translateX(-30%);
+    width: 57px;
+    height: 57px;
+    background-image: url('../../images/差{退出}.svg');
+    background-repeat: no-repeat;
+    border: none;
+}
+
+#detailWishName{
+    position:fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #B95906;
+font-family: "PingFang SC";
+font-style: normal;
+font-weight: 400;
+line-height: normal
+}
+#detailRectangle{
+    position:fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+#detailWishDescription{
+    position:fixed; 
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #B95906;
+    
+    font-family: "PingFang SC";
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-size: 18px;
+}
+#detail-addWishButton{
+    background-image: url('../../images/Component 5.svg');
+    width: 57px;
+    height: 67px;
+    position: fixed;
+    top: 79%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    background-repeat: no-repeat;
+    
+}
+#isShareWishCycle{
+    position: fixed;
+    top:60%;
+    left: 20%;
+    transform: translateX(-20%);
+    background-image: url('../../images/是否循环.svg');
+    border:none;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+}
+
+#ShareWishCycle{
+    position: fixed;
+    top:59%;
+    left: 14%;
+    transform: translateX(-50%);
+    background-image: url('../../images/Vector 48.svg');
+    background-color: transparent;
+    border:none;
+    background-repeat: no-repeat;
+    width: 39px;
+    height: 25px;
 }

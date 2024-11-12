@@ -8,11 +8,12 @@ import Decoration2 from '../../images/FinishTaskDecoration2.svg'
 import FooterDor1 from '../../images/FooterDecoration1.svg'
 import FooterDor2 from '../../images/FooterDecoration2.svg'
 import AddTask from "../../components/addTask.tsx"
-// import AddWish from "../../components/addWish.tsx"
 import Wish from "../../components/Wish.tsx"
+import { useSelector } from "react-redux"
 
 
 const Home=()=>{
+    let tasks = useSelector((state: any) => state.tasks.tasks);
     const addMenuRef=createRef()
     const navigate=useNavigate()
     const [settingNav,setSettingNav]=useState(false)
@@ -76,9 +77,18 @@ const Home=()=>{
                         <img src={Decoration2} alt="Decoration2" id='Decoration2' />
                         <div id='Content'>
                             <span id='headContent'>今天完成了</span>
-                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                        
+                        {tasks.map((task:any,index:number)=>()=>{
+                             return task.completed ? (
+                                <div key={index} id='taskContent'>
+                                    <span id='taskName'>{task.event}</span>
+                                    <span id='taskDate'>{task.description}</span>
+                                </div>
+                            ) : null;
+                        })}
                             
-                        </div>
+                            
+                        </div> 
                     </div>
                     <button id='add' onClick={handleAddTaskMenu}></button>
                     <div id='footer'>

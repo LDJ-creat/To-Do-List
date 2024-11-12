@@ -215,7 +215,8 @@ margin-left: -32px;
     left: 30px;
     display:none;
     top:17%;
-    left: 22%;
+    left: 50%;
+    transform: translateX(-50%);
    
 }
 

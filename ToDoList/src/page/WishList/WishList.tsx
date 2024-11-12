@@ -49,7 +49,7 @@ const WishList = () => {
       speceficWish.style.display = 'block';
     }
   }
-  const HideDetail = (index:number) => {
+  const HideDetail = () => {
 
     const HiddenWish=document.querySelectorAll('.Wishlist-addWishMenu');
     for(let i=0;i<HiddenWish.length;i++){
@@ -88,7 +88,7 @@ const WishList = () => {
                          (最近有{item.view}人看过)
 
                          <div className='Wishlist-addWishMenu' id={`detailWish-${index}`}>
-                          <button id="closeDetail" onClick={() => HideDetail(index)}></button>
+                          <button id="closeDetail" onClick={() => HideDetail()}></button>
                         <div id='detailWishName'>{item.event}</div>
                         <div id='detailRectangle'>——————————————</div>
                         <div  id='detailWishDescription'>{item.description}</div>

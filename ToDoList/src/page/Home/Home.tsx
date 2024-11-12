@@ -1,6 +1,5 @@
 import { Outlet, useNavigate, } from "react-router-dom"
 import { useState } from "react"
-import { createRef } from "react"
 import SettingNav from "../../components/setting-nav.tsx"
 import './Home.css'
 import Decoration1 from '../../images/FinishTaskDecoration1.svg'
@@ -14,15 +13,11 @@ import { useSelector } from "react-redux"
 
 const Home=()=>{
     let tasks = useSelector((state: any) => state.tasks.tasks);
-    const addMenuRef=createRef()
     const navigate=useNavigate()
     const [settingNav,setSettingNav]=useState(false)
-    // const handleAddTaskBt=()=>{
-        
-    // }
-    // const [addTaskMenuApprear,setAddTaskMenuApprear]=useState(false)
+
     const handleAddTaskMenu=()=>{
-        // setAddTaskMenuApprear(!addTaskMenuApprear)
+
         const addTaskMenu=document.getElementById ('addTaskMenu')
         const HomeBackground=document.getElementById ('Pisa')
         const PieChart=document.getElementById ('PieChart')
@@ -36,9 +31,7 @@ const Home=()=>{
         if(PieChart){
         PieChart.style.filter='blur(20px)'
         }
-        // if (addMenuRef.current) {
-        //     addMenuRef.current.style.display = 'block';
-        // }
+
     }
 
     const handleWishMenu=()=>{
@@ -47,7 +40,6 @@ const Home=()=>{
         const PieChart=document.getElementById ('PieChart')
         if(addWishMenu){
         addWishMenu.style.display='block'
-        // addWishMenu.style.display='flex'
         addWishMenu.style.zIndex= '1000';
         }
         if(HomeBackground){
@@ -59,10 +51,6 @@ const Home=()=>{
     }
 
     const handleSettingNav=()=>{
-        // const settingNav=document.getElementById ('setting-nav')
-        // if(settingNav){
-        // settingNav.style.display='block'
-        // }
        setSettingNav(!settingNav)
 
     }
@@ -100,8 +88,7 @@ const Home=()=>{
                         <span id='list'>清单</span>
                         <span id='wishes' >心愿</span>
                     </div>
-                    {/* <AddTask/> */}
-                </div>
+                    </div>
                 <Outlet />
                 
                 {settingNav && <SettingNav />}

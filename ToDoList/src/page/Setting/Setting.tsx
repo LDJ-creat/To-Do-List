@@ -1,4 +1,4 @@
-import { useState ,useEffect} from "react"
+import { useEffect} from "react"
 import { useNavigate } from "react-router-dom"
 import "./Setting.css"
 import Component4 from "../../images/Component 4.svg"
@@ -7,12 +7,12 @@ import axios from "axios"
 
 const Setting = () => { 
     const navigate = useNavigate()
-    const [isQuit, setIsQuit]=useState(false)
-    const Quit=()=>{
-        localStorage.removeItem('token')
-        localStorage.removeItem('tasks')
-        navigate('/')
-    }
+    // const [isQuit, setIsQuit]=useState(false)
+    // const Quit=()=>{
+    //     localStorage.removeItem('token')
+    //     localStorage.removeItem('tasks')
+    //     navigate('/')
+    // }
     useEffect(() => {
         const token = localStorage.getItem('token')
         if(token){
@@ -61,12 +61,7 @@ const Setting = () => {
     }
     return(
         <div className="setting">
-            {/* <img src={Component4} alt=""  className="Icon401"/>
-            <img src={Component4} alt=""  className="Icon402"/>
-            <img src={Component4} alt=""  className="Icon403"/>
-            <img src={Arrow} alt="" className="Arrow01"/>
-            <img src={Arrow} alt=""  className="Arrow02"/>
-            */}
+          
             <button className="personal-email">邮箱：</button>
             <img src={Component4} alt=""  className="Icon401"/>
             

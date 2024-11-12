@@ -1,7 +1,6 @@
 import './FinishChoose.css'
 import FinishChooseImg from '../../images/心愿卡正面（底）.svg'
 import { useState,useEffect } from'react';
-import axios from 'axios';
 import { useDispatch } from "react-redux";
 import { addWish } from "../../Store.ts";
 import { useNavigate } from "react-router-dom";
@@ -38,11 +37,6 @@ const FinishChoose = () => {
         const randomNum=Math.floor(Math.random()*10);
         setRandomWishValue(wishList[randomNum].event);
         setRandomWishDescription(wishList[randomNum].description);//暂时应急用
-
-
-        // const response = await axios.get('url');
-        // setRandomWishValue(response.data.event);
-        // setRandomWishDescription(response.data.description);
     };
     useEffect(()=>{
         getRandomWish();

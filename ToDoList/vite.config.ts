@@ -8,10 +8,14 @@ export default defineConfig({
     include: '**/*.svg' // 改为使用对象的方式
   })],
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    rollupOptions: {
+      external:  ['use-sync-external-store/with-selector.js', 'redux', 'immer', 'use-memo-one', 'reselect', 'css-box-model']
+  }
 },
   server:{
     host:'0.0.0.0',
     port:5173,
-  }
+  },
+
 })

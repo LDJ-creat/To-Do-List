@@ -1,7 +1,7 @@
 
 import { Pie } from'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
-import { useSelector ,useDispatch } from 'react-redux';
+import { useSelector  } from 'react-redux';
 import './PieChart.css'
 import { useEffect,useState } from 'react';
 Chart.register(...registerables);
@@ -22,9 +22,9 @@ const PieChart: React.FC = () => {
   const tasks = useSelector((state: any) => state.tasks.tasks);
   const [taskLabel,setTaskLabel]=useState([]);
   const [chartData,setChartData]=useState([]);
-  const [newTaskName, setNewTaskName] = useState('');
-  const [newTaskDescription, setNewTaskDescription] = useState('');
-  const dispatch = useDispatch();
+  // const [newTaskName, setNewTaskName] = useState('');
+  // const [newTaskDescription, setNewTaskDescription] = useState('');
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     let tempLabel:any=[];

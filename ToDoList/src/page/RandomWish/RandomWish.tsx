@@ -1,11 +1,11 @@
 import './RandomWish.css'
 import  chooseImg from '../../images/心愿卡（背面）.svg'
-import { Navigate, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 const RandomWish = () => {
     const navigate = useNavigate();
     return(
         <div className='RandomWish'>
-            <button className='RandomWish-backBtn'></button>
+            <button className='RandomWish-backBtn' onClick={() => navigate('/Home')}></button>
             {/* <div className='chooseBox'>
                 <div className='chooseImg'></div>
                 <img src={chooseImg} alt="" />

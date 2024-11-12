@@ -1,7 +1,7 @@
 import './MyWish.css'
 import { useNavigate } from 'react-router-dom';
 import AddWish from '../../components/addWish';
-import { useSelector, UseSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
 const MyWish = () => {
     const navigate = useNavigate();
     let wishes=useSelector((state:any)=>state.wishes.wishes)
@@ -18,7 +18,7 @@ const MyWish = () => {
     return (
         <div>
         <div id="my-wish-list">
-            <button className="my-wish-back"></button>
+            <button className="my-wish-back" onClick={()=>navigate('/Home')}></button>
             {wishes.map((wish:any,index:number)=>(
                 <div key={index} className="Wish-List">
                     <div className="my-wish-name">{wish.event}</div>

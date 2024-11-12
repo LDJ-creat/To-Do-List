@@ -5,10 +5,9 @@
     justify-content: center;
     background-image: url('../images/Vector.svg');
     width: 120px;
-height: 103px;
-flex-shrink: 0;
-/* fill: #FFF0CE; */
-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
+    height: 103px;
+    flex-shrink: 0;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
 
 }
 
@@ -26,8 +25,7 @@ border: none;
 width:100px;
 height: 45px;
 position:absolute;
-/* margin-top:-21px;
-margin-bottom:-32px; */
+
 }
 #finishRecord{
     top:19px;

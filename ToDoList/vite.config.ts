@@ -7,6 +7,9 @@ export default defineConfig({
   plugins: [react({
     include: '**/*.svg' // 改为使用对象的方式
   })],
+  build: {
+    outDir: 'dist'
+},
   server:{
     host:'0.0.0.0',
     port:5173,

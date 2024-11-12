@@ -13,7 +13,6 @@ interface Wish {
   }
 
 const AddWish = () => {
-    // const [task, setTask]=useState   <Task>({content:'',description:''});
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [value, setValue] = useState('');
@@ -34,12 +33,6 @@ const AddWish = () => {
         
         dispatch(addWish(newWish));
    
-        // setTask({content:value,description:description})
-        // let newTasks=[...JSON.parse(localStorage.getItem('tasks')||'[]'),task]
-        // localStorage.setItem('tasks',JSON.stringify(newTasks))
-        // setValue('')
-        // setDescription('')
-        // setTask({content:'',description:''})
         setValue('')
         setDescription('')
         const addwish=document.getElementById('addWishMenu')
@@ -60,11 +53,9 @@ const AddWish = () => {
     <div id='setWishCycle'>
         <button id='isWishCycle' onClick={()=>setIsCycle(!isCycle)}></button>
        {isCycle&&<button id='WishCycle' onClick={()=>setIsCycle(!isCycle)}></button>}
-    </div>
-    {/* <div id='addTask'><button onClick={handleSubmit}  id='addTaskButton'></button></div> */}
-    {/* onClick={handleSubmit}  */}
     <button onClick={handleSubmit} id='addWishButton'></button>
     <button id='viewWishButton' onClick={()=>navigate('/wishlist')}>查看他人心愿</button>
+</div>
 </div>
     )
 }
